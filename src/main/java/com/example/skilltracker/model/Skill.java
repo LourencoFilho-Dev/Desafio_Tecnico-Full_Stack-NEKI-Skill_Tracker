@@ -23,9 +23,12 @@ public class Skill {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    private String image_url;
+    private String imageUrl;
 
-    @OneToMany(mappedBy = "skill", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserSkill> userSkills = new ArrayList<>();
+    @Builder.Default
+    @OneToMany(mappedBy = "skill", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<UserSkill> userSkill = new ArrayList<>();
 
+    public Skill(Long skillId) {
+    }
 }

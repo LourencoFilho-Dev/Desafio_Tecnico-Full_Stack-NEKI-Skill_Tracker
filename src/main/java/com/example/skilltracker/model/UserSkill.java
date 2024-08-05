@@ -11,7 +11,6 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class UserSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +21,7 @@ public class UserSkill {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "skill_id", nullable = false )
+    @JoinColumn(name = "skill_id", nullable = false)
     private Skill skill;
 
     @Enumerated(EnumType.STRING)
